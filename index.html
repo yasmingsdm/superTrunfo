@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Super Trunfo</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+              <a href="#howToPlay"><li> How to Play</li></a>
+              <a href="#yourCard"><li>Let's Play</li></a>
+            </ul>
+        </nav>
+        <h1> Super Trunfo</h1>
+        <section id="howToPlay">
+            <p class="howTo" id="howTo">How to Play:</p>
+            <ol>
+                <li> Look at your card and choose the attribute you want to compete with</li>
+                <li> If your card has a higher number on the attribute selected than the computer's card, you win!<br> If the computer's card has a higher number, you loose! <br> If it is the same, it's a tie! </li>
+                <li>You will play with 6 different cards before the game is over</li>
+            </ol>
+        </section>
+        <section id="yourCard">
+            <div class="play">
+                <p> Your card is:</p>
+                <img class="myCard" id="myCard" src=""/>
+                <p>Choose one attribute:</p>
+                <input type="radio" name="attr" value="magic" id="magic">
+                <label for="magic">Magic</label>
+                <input type="radio" name="attr" value="friendship" id="friendship">
+                <label for="friendship">Friendship</label>
+                <input type="radio" name="attr" value="intelligence" id="intelligence">
+                <label for="intelligence">Intelligence</label>
+                <input type="radio" name="attr" value="courage" id="courage">
+                <label for="courage">Courage</label>
+            </div>
+            <div class="pc-card">
+                <p class="winOrLoose" id="winOrLoose"></p>
+                <p class="pcCard">The computer got this card:</p>
+                <img class="pcCard" id="pcCard" src=""/>
+                <h2>Scoreboard:</h2>
+            </div>
+        </section>
+        <button id="playAgain" class="playAgain"><b>Play Again</b></button>
+        <footer>Project by<a href="https://github.com/yasmingsdm"> Yasmin Dal Medico</a></footer>
+        <script src="./script.js"></script>
+    </body>
+</html>
