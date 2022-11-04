@@ -1,0 +1,39 @@
+@font-face {
+    font-family: HarryPotter;
+    src: url(./HARRYP__.TTF);
+}
+
+body{
+    text-align: center;
+    font-family:"Comic Sans MS", "Comic Sans", Arial;
+    background-color:#707070;
+    color:aliceblue
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul li{
+        display: inline;
+        padding:10px;
+        border: solid 1px teal;
+}
+
+a{
+    color:yellow
+}
+
+a:hover{
+    color:orangered
+}
+
+h1{
+    font-family: HarryPotter;
+    font-size: 500%;
+    color: yellow;
+
+}
