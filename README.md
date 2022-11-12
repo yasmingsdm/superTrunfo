@@ -19,7 +19,7 @@ I used HTML, CSS and JavaScript.
 - Requesting code review (GitHub).
 
 
-You can check the project ready here (NOT READY YET)
+You can check the project ready here (NOT READY YET)!
 
 
 Code reviewer: [Vanessa Sue Smith](https://github.com/VanessaSue27)
