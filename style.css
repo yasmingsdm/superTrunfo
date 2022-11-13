@@ -60,3 +60,10 @@ button{
     margin-bottom: 10px;
     margin-top:10px;
 }
+
+.cards{
+    column-count: 2;
+}
+.playerCard{
+    display:inline /* attributes are in the worng column */
+}

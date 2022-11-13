@@ -6,7 +6,7 @@
     </head>
     <body>
         <nav>
-            <iframe src="https://open.spotify.com/embed/playlist/2nI2TA9KrHvlcrZWH5xPbz?utm_source=generator&theme=0" width="20%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/playlist/2nI2TA9KrHvlcrZWH5xPbz?utm_source=generator&theme=0" width="20%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <ul>
               <a href="#howToPlay"><li> How to Play</li></a>
               <a href="#yourCard"><li>Let's Play</li></a>
@@ -18,16 +18,26 @@
             <ol>
                 <li> Look at your card and choose the attribute you want to compete with;</li>
                 <li> If your card has a higher number on the attribute selected than the computer's card, you win!<br> If the computer's card has a higher number, you loose! <br> If it is the same, it's a tie! </li>
-                <li>You will play with 6 different cards before the game is over.</li>
+                <li>You will play with 6 different cards before the game is over(just click on the "Next Turn" button).</li>
             </ol>
         </section>
         <section id="yourCard">
             <button id="seeYourCard" class="seeYourCard" onclick="seeYourCard()"><b>Your Card</b></button>
             <div class="play">
-                <p> Your card is:</p>
-                <img class="myCard" id="myCardImg" src=""/>
-                <h3 class="myCard" id="myCardName"></h3>
-                <p class="myCard" id="myCardAttrib"></p>
+                <div class="cards">
+                    <div class="playerCard">
+                        <p> Your card is:</p>
+                        <img class="myCard" id="myCardImg" src=""/>
+                        <h3 class="myCard" id="myCardName"></h3>
+                        <p class="myCard" id="myCardAttrib"></p>
+                    </div>
+                    <div class="pc-card">
+                        <p class="pcCard">The computer got this card:</p>
+                        <img class="pcCard" id="pcCardImg" src=""/>
+                        <h3 class="pcCard" id="pcCardName"></h3>
+                        <p class="pcCard" id="pcCardAttrib"></p>
+                    </div>
+                </div>
                 <p>Choose one attribute:</p>
                 <input type="radio" name="attr" value="magic" id="magic">
                 <label for="magic">Magic</label>
@@ -37,15 +47,12 @@
                 <label for="intelligence">Intelligence</label>
                 <input type="radio" name="attr" value="courage" id="courage">
                 <label for="courage">Courage</label>
-            </div>
-            <button id="play" class="play"><b>Play</b></button>
-            <div class="pc-card">
-                <p class="winOrLoose" id="winOrLoose"></p>
-                <p class="pcCard">The computer got this card:</p>
-                <img class="pcCard" id="pcCard" src=""/>
+            <button id="play" class="play" onclick="play()"><b>Play</b></button>
                 <h2>Scoreboard:</h2>
+                <p id="scoreboard"></p>
             </div>
         </section>
+        <button id="nextTurn" class="nextTurn" onclick="nextTurn()"><b>Next Turn</b></button>
         <button id="playAgain" class="playAgain"><b>Play Again</b></button>
         <footer>Project by<a href="https://github.com/yasmingsdm"> Yasmin Dal Medico</a></footer>
         <script src="./script.js"></script>
