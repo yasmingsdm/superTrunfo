@@ -10,11 +10,22 @@ body{
     color:aliceblue
 }
 
+nav{
+    display:flex;
+    justify-content: space-between;
+}
+
+iframe{
+    border-radius: 12px;
+    display:inline-block;
+}
+
 ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     text-align: center;
+    display:inline-block;
 }
 
 ul li{
@@ -33,7 +44,19 @@ a:hover{
 
 h1{
     font-family: HarryPotter;
-    font-size: 500%;
+    font-size: 600%;
     color: yellow;
 
+}
+
+ol{
+    list-style-position: inside;
+}
+
+button{
+    border-radius: 20px;
+    color:#707070;
+    padding:10px;
+    margin-bottom: 10px;
+    margin-top:10px;
 }

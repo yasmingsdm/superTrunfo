@@ -6,6 +6,7 @@
     </head>
     <body>
         <nav>
+            <iframe src="https://open.spotify.com/embed/playlist/2nI2TA9KrHvlcrZWH5xPbz?utm_source=generator&theme=0" width="20%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <ul>
               <a href="#howToPlay"><li> How to Play</li></a>
               <a href="#yourCard"><li>Let's Play</li></a>
@@ -15,15 +16,18 @@
         <section id="howToPlay">
             <p class="howTo" id="howTo">How to Play:</p>
             <ol>
-                <li> Look at your card and choose the attribute you want to compete with</li>
+                <li> Look at your card and choose the attribute you want to compete with;</li>
                 <li> If your card has a higher number on the attribute selected than the computer's card, you win!<br> If the computer's card has a higher number, you loose! <br> If it is the same, it's a tie! </li>
-                <li>You will play with 6 different cards before the game is over</li>
+                <li>You will play with 6 different cards before the game is over.</li>
             </ol>
         </section>
         <section id="yourCard">
+            <button id="seeYourCard" class="seeYourCard" onclick="seeYourCard()"><b>Your Card</b></button>
             <div class="play">
                 <p> Your card is:</p>
-                <img class="myCard" id="myCard" src=""/>
+                <img class="myCard" id="myCardImg" src=""/>
+                <h3 class="myCard" id="myCardName"></h3>
+                <p class="myCard" id="myCardAttrib"></p>
                 <p>Choose one attribute:</p>
                 <input type="radio" name="attr" value="magic" id="magic">
                 <label for="magic">Magic</label>
@@ -34,6 +38,7 @@
                 <input type="radio" name="attr" value="courage" id="courage">
                 <label for="courage">Courage</label>
             </div>
+            <button id="play" class="play"><b>Play</b></button>
             <div class="pc-card">
                 <p class="winOrLoose" id="winOrLoose"></p>
                 <p class="pcCard">The computer got this card:</p>
