@@ -60,3 +60,14 @@ button{
     margin-bottom: 10px;
     margin-top:10px;
 }
+
+.cards{
+   display: flex;
+   flex-direction: row; 
+   justify-content: center;
+   align-items: center;
+}
+
+.pc-card{
+display:none;
+}

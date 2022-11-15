@@ -2,7 +2,7 @@
 
 const harry ={
     name: 'Harry Potter',
-    imagem: './harry.png',
+    imagem: './images/harry.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -13,7 +13,7 @@ const harry ={
 
 const bellatrix ={
     name: 'Bellatrix Lestrange',
-    imagem: './belatriz.png',
+    imagem: './images/belatriz.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -24,7 +24,7 @@ const bellatrix ={
 
 const dobby ={
     name: 'Dobby',
-    imagem: './doby.png',
+    imagem: './images/doby.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: 10,
@@ -35,7 +35,7 @@ const dobby ={
 
 const draco ={
     name: 'Draco Malfoy',
-    imagem: './draco.png',
+    imagem: './images/draco.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -46,7 +46,7 @@ const draco ={
 
 const dumbledore ={
     name: 'Albus Dumbledore',
-    imagem: './dumbledore.png',
+    imagem: './images/dumbledore.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -57,7 +57,7 @@ const dumbledore ={
 
 const hagrid ={
     name: 'Rubeus Hagrid',
-    imagem: './hagrid.png',
+    imagem: './images/hagrid.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: 10,
@@ -68,7 +68,7 @@ const hagrid ={
 
 const hermione ={
     name: 'Hermione Granger',
-    imagem: './hermione.png',
+    imagem: './images/hermione.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -79,7 +79,7 @@ const hermione ={
 
 const neville ={
     name: 'Neville Longbottom',
-    imagem: './neville.png',
+    imagem: './images/neville.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
@@ -90,7 +90,7 @@ const neville ={
 
 const rony ={
     name: 'Rony Weasley',
-    imagem: './rony.png',
+    imagem: './images/rony.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: 10,
@@ -101,7 +101,7 @@ const rony ={
 
 const sirius ={
     name: 'Sirius Black',
-    imagem: './sirius.png',
+    imagem: './images/sirius.png',
     atributos:{
         magic: 10,
         friendship: Math.floor(Math.random()*9),
@@ -112,7 +112,7 @@ const sirius ={
 
 const snape ={
     name: 'Severus Snape',
-    imagem: './snape.png',
+    imagem: './images/snape.png',
     atributos:{
         magic: 10,
         friendship: Math.floor(Math.random()*9),
@@ -123,7 +123,7 @@ const snape ={
 
 const voldemort ={
     name: 'He-Who-Must-Not-Be-Named',
-    imagem: './voldemort.png',
+    imagem: './images/voldemort.png',
     atributos:{
         magic: 10,
         friendship: Math.floor(Math.random()*9),
@@ -132,23 +132,105 @@ const voldemort ={
     }
 }
 
-const cartas = [harry, bellatrix, dobby, draco, dumbledore, hagrid, hermione, neville, rony, sirius, snape, voldemort]
+let cartas = [harry, bellatrix, dobby, draco, dumbledore, hagrid, hermione, neville, rony, sirius, snape, voldemort]
+// Sortear cartas:
+
+let pontosPc = 0
+let pontosPlayer = 0
+
+
+let cardPlayer 
+let cardPc
 
 //Play:
-
 const seeYourCard = ()=>{
     let numCardPc = Math.floor(Math.random()*cartas.length)
-    let cardPc = cartas[numCardPc]
-    cartas.slice(numCardPc, 1)
+    cardPc = cartas[numCardPc]
+    cartas.splice(numCardPc,1)
 
     let numCardPlayer = Math.floor(Math.random()*cartas.length)
-    let cardPlayer = cartas[numCardPlayer]
-    cartas.slice(numCardPlayer, 1)
-    //console.log(cardPlayer)
-
-    document.getElementById(myCardImg).src = cardPlayer[imagem] //NOT WORKING
-    document.getElementById(myCardName) = cardPlayer[name] //NOT WORKING
-    document.getElementById(myCardAttrib) = cardPlayer[atributos] //NOT WORKING
+    cardPlayer = cartas[numCardPlayer]
+   
+    cartas.splice(numCardPlayer, 1)
+    document.getElementById('playerCard').style.display='block'
+    document.getElementById('myCardImg').src = cardPlayer.imagem 
+    document.getElementById('myCardName').innerHTML = cardPlayer.name 
+    document.getElementById('myCardAttrib').innerHTML = 'Magic: ' + cardPlayer.atributos.magic + '<br>Friendship: '+ cardPlayer.atributos.friendship + '<br>Intelligence: ' + cardPlayer.atributos.intelligence + '<br>Courage: ' + cardPlayer.atributos.courage
 
     document.getElementById('seeYourCard').disabled = true
+}
+
+const play = ()=>{
+
+// Choose an attribute:
+let atributoEscolhido = ''
+
+if (document.getElementById('magic').checked == true){
+    atributoEscolhido = 'magic'
+} else if (document.getElementById('friendship').checked == true){
+    atributoEscolhido = 'friendship'
+} else if (document.getElementById('intelligence').checked == true){
+    atributoEscolhido = 'intelligence'
+} else if (document.getElementById('courage').checked == true){
+    atributoEscolhido = 'courage'
+} else { alert('Choose an attribute')}
+
+//Compare cards and see who wins:
+
+
+if (atributoEscolhido == 'magic'){
+    if (cardPlayer.atributos.magic > cardPc.atributos.magic){
+        pontosPlayer++
+    } else if (cardPc.atributos.magic > cardPlayer.atributos.magic){
+        pontosPc++
+    }
+} else if (atributoEscolhido == 'friendship'){
+    if (cardPlayer.atributos.friendship > cardPc.atributos.friendship){
+        pontosPlayer++
+    } else if (cardPc.atributos.friendship > cardPlayer.atributos.friendship){
+        pontosPc++
+    }
+}else if (atributoEscolhido == 'intelligence'){
+    if (cardPlayer.atributos.intelligence > cardPc.atributos.intelligence){
+        pontosPlayer++
+    } else if (cardPc.atributos.intelligence > cardPlayer.atributos.intelligence){
+        pontosPc++
+    }
+}else if (atributoEscolhido == 'courage'){
+    if (cardPlayer.atributos.courage > cardPc.atributos.courage){
+        pontosPlayer++
+    } else if (cardPc.atributos.courage > cardPlayer.atributos.courage){
+        pontosPc++
+     }
+ }
+
+ //Show Pc Card:
+document.getElementById('pc-card').style.display='block'
+document.getElementById('pcCardImg').src = cardPc.imagem 
+document.getElementById('pcCardName').innerHTML = cardPc.name 
+document.getElementById('pcCardAttrib').innerHTML = 'Magic: ' + cardPc.atributos.magic + '<br>Friendship: '+ cardPc.atributos.friendship + '<br>Intelligence: ' + cardPc.atributos.intelligence + '<br>Courage: ' + cardPc.atributos.courage
+
+//Scoreboard:
+
+document.getElementById('scoreboard').innerHTML = 'You: ' + pontosPlayer + '  /  Pc: ' + pontosPc
+
+// Disable when there is no more cards:
+
+if (cartas.length == 2 ){
+ document.getElementById('nextTurn').disabled = true
+} 
+}
+
+//Next Turn:
+const nextTurn = ()=>{
+   
+    console.log(cartas)
+document.getElementById('pc-card').style.display='none'
+document.getElementById('playerCard').style.display='none'
+document.getElementById('seeYourCard').disabled = false 
+}
+// Play Again:
+
+document.getElementById('playAgain').onclick = ()=>{
+    location.reload()
 }
