@@ -18,7 +18,7 @@ const bellatrix ={
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
         intelligence: Math.floor(Math.random()*9),
-        courage: 10
+        courage: 9
     }
 }
 
@@ -27,7 +27,7 @@ const dobby ={
     imagem: './images/doby.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
-        friendship: 10,
+        friendship: 9,
         intelligence: Math.floor(Math.random()*9),
         courage: Math.floor(Math.random()*9),
     }
@@ -40,7 +40,7 @@ const draco ={
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
         intelligence: Math.floor(Math.random()*9),
-        courage: 10,
+        courage: 8,
     }
 }
 
@@ -50,7 +50,7 @@ const dumbledore ={
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
-        intelligence: 10,
+        intelligence: 9,
         courage: Math.floor(Math.random()*9),
     }
 }
@@ -60,7 +60,7 @@ const hagrid ={
     imagem: './images/hagrid.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
-        friendship: 10,
+        friendship: 9,
         intelligence: Math.floor(Math.random()*9),
         courage: Math.floor(Math.random()*9),
     }
@@ -72,7 +72,7 @@ const hermione ={
     atributos:{
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
-        intelligence: 10,
+        intelligence: 9,
         courage: Math.floor(Math.random()*9),
     }
 }
@@ -84,7 +84,7 @@ const neville ={
         magic: Math.floor(Math.random()*9),
         friendship: Math.floor(Math.random()*9),
         intelligence: Math.floor(Math.random()*9),
-        courage: 10,
+        courage: 8,
     }
 }
 
@@ -93,7 +93,7 @@ const rony ={
     imagem: './images/rony.png',
     atributos:{
         magic: Math.floor(Math.random()*9),
-        friendship: 10,
+        friendship: 8,
         intelligence: Math.floor(Math.random()*9),
         courage: Math.floor(Math.random()*9),
     }
@@ -103,7 +103,7 @@ const sirius ={
     name: 'Sirius Black',
     imagem: './images/sirius.png',
     atributos:{
-        magic: 10,
+        magic: 8,
         friendship: Math.floor(Math.random()*9),
         intelligence: Math.floor(Math.random()*9),
         courage: Math.floor(Math.random()*9),
@@ -114,7 +114,7 @@ const snape ={
     name: 'Severus Snape',
     imagem: './images/snape.png',
     atributos:{
-        magic: 10,
+        magic: 8,
         friendship: Math.floor(Math.random()*9),
         intelligence: Math.floor(Math.random()*9),
         courage: Math.floor(Math.random()*9),
@@ -133,25 +133,23 @@ const voldemort ={
 }
 
 let cartas = [harry, bellatrix, dobby, draco, dumbledore, hagrid, hermione, neville, rony, sirius, snape, voldemort]
-// Sortear cartas:
 
 let pontosPc = 0
 let pontosPlayer = 0
 
-
 let cardPlayer 
 let cardPc
 
-//Play:
 const seeYourCard = ()=>{
+    // Sortear cartas:
     let numCardPc = Math.floor(Math.random()*cartas.length)
     cardPc = cartas[numCardPc]
     cartas.splice(numCardPc,1)
 
     let numCardPlayer = Math.floor(Math.random()*cartas.length)
     cardPlayer = cartas[numCardPlayer]
-   
     cartas.splice(numCardPlayer, 1)
+
     document.getElementById('playerCard').style.display='block'
     document.getElementById('myCardImg').src = cardPlayer.imagem 
     document.getElementById('myCardName').innerHTML = cardPlayer.name 
@@ -176,7 +174,6 @@ if (document.getElementById('magic').checked == true){
 } else { alert('Choose an attribute')}
 
 //Compare cards and see who wins:
-
 
 if (atributoEscolhido == 'magic'){
     if (cardPlayer.atributos.magic > cardPc.atributos.magic){
@@ -204,7 +201,8 @@ if (atributoEscolhido == 'magic'){
      }
  }
 
- //Show Pc Card:
+//Show Pc Card:
+
 document.getElementById('pc-card').style.display='block'
 document.getElementById('pcCardImg').src = cardPc.imagem 
 document.getElementById('pcCardName').innerHTML = cardPc.name 
@@ -216,18 +214,17 @@ document.getElementById('scoreboard').innerHTML = 'You: ' + pontosPlayer + '  / 
 
 // Disable when there is no more cards:
 
-if (cartas.length == 2 ){
- document.getElementById('nextTurn').disabled = true
+if (cartas.length < 2 ){
+    document.getElementById('nextTurn').disabled = true
 } 
 }
 
 //Next Turn:
+
 const nextTurn = ()=>{
-   
-    console.log(cartas)
-document.getElementById('pc-card').style.display='none'
-document.getElementById('playerCard').style.display='none'
-document.getElementById('seeYourCard').disabled = false 
+    document.getElementById('pc-card').style.display='none'
+    document.getElementById('playerCard').style.display='none'
+    document.getElementById('seeYourCard').disabled = false 
 }
 // Play Again:
 
