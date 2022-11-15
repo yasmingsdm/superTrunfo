@@ -21,7 +21,7 @@ I used HTML, CSS and JavaScript.
 - Requesting code review (GitHub).
 
 
-You can check the project ready [here] (https://yasmingsdm.github.io/superTrunfo/)!
+You can check the project ready [here](https://yasmingsdm.github.io/superTrunfo/)!
 
 
 Code reviewer: [Vanessa Sue Smith](https://github.com/VanessaSue27)
