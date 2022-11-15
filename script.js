@@ -132,22 +132,27 @@ const voldemort ={
     }
 }
 
-const cartas = [harry, bellatrix, dobby, draco, dumbledore, hagrid, hermione, neville, rony, sirius, snape, voldemort]
-
+let cartas = [harry, bellatrix, dobby, draco, dumbledore, hagrid, hermione, neville, rony, sirius, snape, voldemort]
 // Sortear cartas:
 
-let numCardPc = Math.floor(Math.random()*cartas.length)
-    let cardPc = cartas[numCardPc]
-    cartas.slice(numCardPc, 1)
+let pontosPc = 0
+let pontosPlayer = 0
 
-    let numCardPlayer = Math.floor(Math.random()*cartas.length)
-    let cardPlayer = cartas[numCardPlayer]
-    cartas.slice(numCardPlayer, 1)
 
+let cardPlayer 
+let cardPc
 
 //Play:
 const seeYourCard = ()=>{
-    
+    let numCardPc = Math.floor(Math.random()*cartas.length)
+    cardPc = cartas[numCardPc]
+    cartas.splice(numCardPc,1)
+
+    let numCardPlayer = Math.floor(Math.random()*cartas.length)
+    cardPlayer = cartas[numCardPlayer]
+   
+    cartas.splice(numCardPlayer, 1)
+    document.getElementById('playerCard').style.display='block'
     document.getElementById('myCardImg').src = cardPlayer.imagem 
     document.getElementById('myCardName').innerHTML = cardPlayer.name 
     document.getElementById('myCardAttrib').innerHTML = 'Magic: ' + cardPlayer.atributos.magic + '<br>Friendship: '+ cardPlayer.atributos.friendship + '<br>Intelligence: ' + cardPlayer.atributos.intelligence + '<br>Courage: ' + cardPlayer.atributos.courage
@@ -171,8 +176,7 @@ if (document.getElementById('magic').checked == true){
 } else { alert('Choose an attribute')}
 
 //Compare cards and see who wins:
-let pontosPc = 0
-let pontosPlayer = 0
+
 
 if (atributoEscolhido == 'magic'){
     if (cardPlayer.atributos.magic > cardPc.atributos.magic){
@@ -201,7 +205,7 @@ if (atributoEscolhido == 'magic'){
  }
 
  //Show Pc Card:
-
+document.getElementById('pc-card').style.display='block'
 document.getElementById('pcCardImg').src = cardPc.imagem 
 document.getElementById('pcCardName').innerHTML = cardPc.name 
 document.getElementById('pcCardAttrib').innerHTML = 'Magic: ' + cardPc.atributos.magic + '<br>Friendship: '+ cardPc.atributos.friendship + '<br>Intelligence: ' + cardPc.atributos.intelligence + '<br>Courage: ' + cardPc.atributos.courage
@@ -212,13 +216,17 @@ document.getElementById('scoreboard').innerHTML = 'You: ' + pontosPlayer + '  / 
 
 // Disable when there is no more cards:
 
-//while (cartas.length > 0 ){
- //   document.getElementById('nextTurn').disabled = false
-//} NOT WORKING
+if (cartas.length == 2 ){
+ document.getElementById('nextTurn').disabled = true
+} 
 }
 
 //Next Turn:
 const nextTurn = ()=>{
+   
+    console.log(cartas)
+document.getElementById('pc-card').style.display='none'
+document.getElementById('playerCard').style.display='none'
 document.getElementById('seeYourCard').disabled = false 
 }
 // Play Again:
